@@ -26,6 +26,7 @@ a {
 .flex {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 li {
@@ -54,7 +55,19 @@ img {
   max-width: 100%;
   height: auto;
   margin: auto;
-  /* display: block; */
+  display: block;
+}
+
+.p-top {
+  padding-top: 10rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 4rem;
 }
 
 /* header part */
@@ -132,14 +145,16 @@ img {
   display: none;
 }
 
-/* sections part */
+/* Hero sections part */
 .hero-section {
   min-height: calc(100vh - 14vh);
 }
 
 .content,
-.image-container {
+.image-container,
+.services-card {
   flex: 1;
+  flex-basis: 300px;
 }
 
 h1 {
@@ -181,11 +196,65 @@ p {
   transform: scale(1.1);
 }
 
+
+/* Section 1 */
+h5 {
+  font-size: 1.2rem;
+  letter-spacing: .2rem;
+  color: var(--gold-finger);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 3.7rem;
+  text-transform: capitalize;
+  color: var(--lead);
+}
+
+h3 {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: var(--lead);
+}
+
+.services-card h3 {
+  margin: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* section 2 */
+.order-card {
+  flex: 1;
+  flex-basis: 300px;
+  background: var(--pure-white);
+  padding: 0 1rem 2rem 1rem;
+  border: .1rem solid var(--gold-finger);
+  border-radius: 2rem;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.05), 8px 8px 8px rgba(0, 0, 0, 0.05) inset;
+}
+
+.order-card img {
+  width: 15rem;
+  filter: drop-shadow(rgba(0, 0, 0, 0.356) 0 10px 10px);
+}
+
+h4 {
+  font-size: 1.8rem;
+  color: var(--lead);
+}
+
+.order-card .price {
+  font-size: 1.7rem;
+  color: var(--gold-finger);
+  padding: 1.3rem 0 2rem 0;
+}
+
 /* footer part */
 
 /* media quries */
 @media screen and (max-width: 780px) {
 
+  /* header */
   .navlist,
   .desktop-action .btn {
     display: none;
@@ -217,5 +286,26 @@ p {
   .mobile-active {
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  /* sections */
+  h1 {
+    font-size: 3.6rem;
+  }
+
+  .content {
+    padding-top: 3rem;
+  }
+
+  .gap-2 {
+    gap: 1.4rem;
+  }
+
+  .gap-4 {
+    gap: 4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
   }
 }
