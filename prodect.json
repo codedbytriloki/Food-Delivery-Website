@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Double Beef Burger",
+    "price": "$200",
+    "image": "Images/burger.png"
+  },
+  {
+    "id": 2,
+    "name": "Veggle Pizza",
+    "price": "$10.99",
+    "image": "Images/pizza.png"
+  },
+  {
+    "id": 3,
+    "name": "Friend Chicken",
+    "price": "$13.45",
+    "image": "Images/fried-chicken.png"
+  },
+  {
+    "id": 4,
+    "name": "Chicken Roll",
+    "price": "$7.45",
+    "image": "Images/chicken-roll.png"
+  },
+  {
+    "id": 5,
+    "name": "Sub Sandwich",
+    "price": "$13.45",
+    "image": "Images/sandwich.png"
+  },
+  {
+    "id": 6,
+    "name": "Chicken Lasagna",
+    "price": "$10.10",
+    "image": "Images/lasagna.png"
+  },
+  {
+    "id": 7,
+    "name": "Spaghetti",
+    "price": "$20.00",
+    "image": "Images/spaghetti.png"
+  },
+  {
+    "id": 8,
+    "name": "Spring Roll",
+    "price": "$9.31",
+    "image": "Images/spring-roll.png"
+  }
+]
