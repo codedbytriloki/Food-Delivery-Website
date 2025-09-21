@@ -324,9 +324,14 @@ h4 {
   align-items: center;
   gap: 1rem;
   padding: .7rem 1rem;
+  transition: .5s ease-in-out;
 }
 
-.iteam .detail{
+.iteam.slide-out {
+  transform: translateX(50%);
+}
+
+.iteam .detail {
   flex: 2;
 }
 

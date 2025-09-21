@@ -15,6 +15,19 @@ const cartTab = document.querySelector('.cart-tab');
 const closeBtn = document.querySelector('.close-btn');
 const cardList = document.querySelector('.card-list');
 const cartList = document.querySelector('.cart-list');
+const cartTotal = document.querySelector('.cart-total');
+const cartValue = document.querySelector('.cart-value');
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('.mobile-menu');
+const bars = document.querySelector('.fa-bars');
+
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('mobile-active');
+})
+
+hamburger.addEventListener('click', () => {
+  bars.classList.toggle('fa-xmark');
+})
 
 cartIcon.addEventListener('click', () => {
   cartTab.classList.add('cart-tab-active');
@@ -27,6 +40,21 @@ closeBtn.addEventListener('click', () => {
 let productList = [];
 let cartProduct = [];
 
+const updateTotal = () => {
+
+  let totalPrice = 0;
+  let totalQuantity = 0;
+
+  document.querySelectorAll('.iteam').forEach(item => {
+    const quantity = parseInt(item.querySelector('.quantity-value').textContent);
+    const price = parseFloat(item.querySelector('.iteam-total').textContent.replace('$', ''));
+
+    totalPrice += price;
+    totalQuantity += quantity;
+  });
+  cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+  cartValue.textContent = totalQuantity;
+}
 
 const showCards = () => {
   productList.forEach(product => {
@@ -57,8 +85,10 @@ const addToCart = (prodect) => {
     alert("Item already in your cart");
     return;
   }
+
   cartProduct.push(prodect);
   let quantity = 1;
+  let price = parseFloat(prodect.price.replace('$', ''))
 
   const cartItem = document.createElement('div');
   cartItem.classList.add('iteam');
@@ -81,13 +111,39 @@ const addToCart = (prodect) => {
   </div>    
     `
   cartList.appendChild(cartItem);
+  updateTotal();
 
   const plusBtn = cartItem.querySelector('.plus');
+  const minusBtn = cartItem.querySelector('.minus');
   const quantityValue = cartItem.querySelector('.quantity-value');
-  plusBtn.addEventListener('click', () => {
+  const iteamTotal = cartItem.querySelector('.iteam-total');
+
+  plusBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     quantity++;
     quantityValue.textContent = quantity;
+    iteamTotal.textContent = `$${(price * quantity).toFixed(2)}`;
+    updateTotal();
   })
+
+  minusBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (quantity > 1) {
+      quantity--;
+      quantityValue.textContent = quantity;
+      iteamTotal.textContent = `$${(price * quantity).toFixed(2)}`;
+      updateTotal();
+    }
+    else {
+      cartItem.classList.add('slide-out');
+      setTimeout(() => {
+        cartItem.remove();
+        cartProduct = cartProduct.filter(item => item.id !== prodect.id);
+        updateTotal();
+      }, 300)
+    }
+  })
+
 }
 
 const initApp = () => {
